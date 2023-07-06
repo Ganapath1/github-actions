@@ -1,0 +1,10 @@
+name: Basic one
+on: workflow_dispatch
+jobs:
+  first_job:
+    runs-on:  ubunut-latest
+    steps:
+    - name: printing hello world.
+      run: echo "hello bro"
+    - name: printing wishes
+      run: echo "good morning"
