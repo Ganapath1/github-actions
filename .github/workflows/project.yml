@@ -1,0 +1,16 @@
+name: second_one
+on: workflow_dispatch
+jobs:
+  project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out the code
+        uses: actions/checkout@v3
+      - name: installing dependencies
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: installing dependcies
+        run: npm ci
+      - name: testing
+        run: npm test
