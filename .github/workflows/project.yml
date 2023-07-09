@@ -1,5 +1,5 @@
 name: second_one
-on: workflow_dispatch
+on: push
 jobs:
   project:
     runs-on: ubuntu-latest
@@ -14,3 +14,19 @@ jobs:
         run: npm ci
       - name: testing
         run: npm test
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out the code
+        uses: actions/checkout@v3
+      - name: installing node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: installing dependencies
+        run: npm ci
+      - name: buildind the code
+        run: npm run build
+      - name: deploying
+        run: echo "deployed interstellar"
