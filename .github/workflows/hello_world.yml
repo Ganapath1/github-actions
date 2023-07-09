@@ -6,3 +6,8 @@ jobs:
     steps:
       - name: printing greetings
         run: echo "hello world"
+  output:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing the github context
+        run: echo "${{ toJSON(github) }}"
