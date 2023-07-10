@@ -1,0 +1,19 @@
+name: events workflow
+on: workflow_dispatch
+jobs:
+  events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: getting the output of the code
+        run: echo "${{ toJSON(github.event) }}"
+      - name: check out the code
+        uses: actions/checkout@v3
+      - name: installing dependencies
+        run: npm ci
+      - name: run build
+        run: npm run build
+      - name: run deploy
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: dist
