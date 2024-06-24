@@ -11,3 +11,9 @@ jobs:
     steps:
       - name: printing the github context
         run: echo "${{ toJSON(github) }}"
+
+  third_one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing greetings
+        run: echo "checking for all"
